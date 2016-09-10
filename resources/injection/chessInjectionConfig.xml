@@ -9,34 +9,34 @@
            http://www.springframework.org/schema/context/spring-context-2.5.xsd"
 	default-lazy-init="true">
 
-	<context:component-scan base-package="controller.minFigure" />
-	<context:component-scan base-package="controller.moveHandler" />
-	<context:component-scan base-package="controller.hitKing" />
-	<context:component-scan base-package="view.commands" />
+	<context:component-scan base-package="com.game.controller.minFigure" />
+	<context:component-scan base-package="com.game.controller.moveHandler" />
+	<context:component-scan base-package="com.game.controller.hitKing" />
+	<context:component-scan base-package="com.game.view.commands" />
 
-	<bean id="commandReader" class="view.CommandReader" />
-	<bean id="gameFieldPrinter" class="view.GameFieldPrinter">
+	<bean id="commandReader" class="com.game.view.CommandReader" />
+	<bean id="gameFieldPrinter" class="com.game.view.GameFieldPrinter">
 		<constructor-arg ref="game" />
 	</bean>
 
-	<bean id="figureHolder" class="model.figure.FigureHolder" />
-	<bean id="game" class="model.Game" />
-	<bean id="gameField" class="model.GameField" />
+	<bean id="figureHolder" class="com.game.model.figure.FigureHolder" />
+	<bean id="game" class="com.game.model.Game" />
+	<bean id="gameField" class="com.game.model.GameField" />
 
-	<bean id="controller" class="controller.Controller">
+	<bean id="controller" class="com.game.controller.Controller">
 		<constructor-arg ref="figureMoveHandler" />
 		<constructor-arg ref="checkChecker" />
 		<constructor-arg ref="figureHolder" />
 		<constructor-arg ref="gameFieldFactory" />
 		<constructor-arg ref="game" />
 	</bean>
-	<bean id="checkChecker" class="controller.CheckChecker">
+	<bean id="checkChecker" class="com.game.controller.CheckChecker">
 		<constructor-arg ref="figureHitKingChecker" />
 		<constructor-arg ref="game" />
 	</bean>
-	<bean id="figureMoveHandler" class="controller.FigureMoveHandler" />
-	<bean id="figureHitKingChecker" class="controller.FigureHitKingChecker" />
-	<bean id="gameFieldFactory" class="controller.GameFieldFactory">
+	<bean id="figureMoveHandler" class="com.game.controller.FigureMoveHandler" />
+	<bean id="figureHitKingChecker" class="com.game.controller.FigureHitKingChecker" />
+	<bean id="gameFieldFactory" class="com.game.controller.GameFieldFactory">
 		<constructor-arg ref="figureHolder" />
 	</bean>
 </beans>

@@ -52,7 +52,7 @@ public class GameFieldFactory implements IGameFieldFactory {
 	 * The attribute for the y position of the figure in the start constellation.
 	 */
 	private static final String	POS_X	= "posX";
-										
+	
 	/**
 	 * The figure holder for getting all figure.
 	 */
@@ -61,7 +61,7 @@ public class GameFieldFactory implements IGameFieldFactory {
 	 * The xml document for loading the start constellation.
 	 */
 	private final Document		doc;
-								
+	
 	/**
 	 * Create a game field factory for the start constellation. He read it out from a xml file.
 	 * 
@@ -91,6 +91,7 @@ public class GameFieldFactory implements IGameFieldFactory {
 	 */
 	@Override
 	public IGameField createGameField() {
+		// TODO factory pattern besser mit spring einbinden
 		final IGameField gameField = InjectionLoader.INSTANCE.getInstanceOf(IGameField.class);
 		
 		final NodeList players = doc.getElementsByTagName(PLAYER);
