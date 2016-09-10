@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 
 import com.game.controller.minFigure.IMinFigureCheck;
 import com.game.controller.moveHandler.IMoveHandler;
@@ -41,7 +42,7 @@ public class Controller implements IController {
 	 */
 	private static final int[]			TURN_TO_BE_EQUALS								= { 0, 4,
 			8 };
-			
+	
 	/**
 	 * The FigureMoveHandler for getting MoveHandlers.
 	 */
@@ -55,19 +56,18 @@ public class Controller implements IController {
 	 */
 	private final ICheckChecker			checkChecker;
 	/**
-	 * The game field factory to get a game field with the start constellation.
-	 */
-	private final IGameFieldFactory		factory;
-	/**
 	 * The game
 	 */
 	private final IGame					game;
-										
+	/**
+	 * The provider where the controller can get new filled game fields.
+	 */
+	private final Provider<IGameField>	gameFieldProvider;
 	/**
 	 * A set with all condition of minimal figure amount to set the king checkmatt.
 	 */
 	private final Set<IMinFigureCheck>	minFigureChecks;
-										
+	
 	/**
 	 * Create a controller for a game.
 	 * 
@@ -77,22 +77,22 @@ public class Controller implements IController {
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
 	 *            The checker to check if the king is in check.
-	 * @param factory
-	 *            The game field factory to get a game field with the start constellation.
 	 * @param game
 	 *            The game for which the controller is.
+	 * @param gameFieldProvider
+	 *            The provider where the controller can get new filled game fields.
 	 * @param minFigureChecks
 	 *            A set with all condition of minimal figure amount to set the king checkmatt.
 	 */
 	@Inject
 	public Controller(final IFigureMoveHandler figureMoveHandler, final IFigureHolder figureHolder,
-			final ICheckChecker checkChecker, final IGameFieldFactory factory, final IGame game,
-			final Set<IMinFigureCheck> minFigureChecks) {
+			final ICheckChecker checkChecker, final IGame game,
+			Provider<IGameField> gameFieldProvider, final Set<IMinFigureCheck> minFigureChecks) {
 		this.figureMoveHandler = figureMoveHandler;
 		this.figureHolder = figureHolder;
 		this.checkChecker = checkChecker;
-		this.factory = factory;
 		this.game = game;
+		this.gameFieldProvider = gameFieldProvider;
 		this.minFigureChecks = minFigureChecks;
 		restartGame(true);
 	}
@@ -119,7 +119,7 @@ public class Controller implements IController {
 		while (game.sizeOfLastConstellations() > 0) {
 			game.removeOldestConstellation();
 		}
-		game.setGameField(factory.createGameField());
+		game.setGameField(gameFieldProvider.get());
 		game.setGameState(GameState.TURN_OF_PLAYER_1);
 	}
 	
@@ -220,7 +220,7 @@ public class Controller implements IController {
 		gameField.setFigure(pawnPos, figureHolder.getFigure(type, player));
 		game.setGameState(player == Player.PLAYER_1 ? GameState.TURN_OF_PLAYER_2
 				: GameState.TURN_OF_PLAYER_1);
-				
+		
 		saveConstellation();
 		checkForWinOrDrawn(player);
 		

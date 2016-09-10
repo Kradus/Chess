@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.game.controller.GameFieldFactory;
+import com.game.model.GameField;
 import com.game.model.IGameField;
 import com.game.model.Player;
 import com.game.model.Point;
@@ -29,13 +30,13 @@ public class KnightHitKingCheckerTest {
 	/**
 	 * The factory for the game field object.
 	 */
-	private final GameFieldFactory		gameFieldFactory		= new GameFieldFactory(
-			figureHolder);
+	private final GameFieldFactory		gameFieldFactory		= new GameFieldFactory(figureHolder,
+			GameField::new);
 	/**
 	 * The actual game field.
 	 */
 	private IGameField					gameField;
-										
+	
 	/**
 	 * Initialization of the game field.
 	 */
