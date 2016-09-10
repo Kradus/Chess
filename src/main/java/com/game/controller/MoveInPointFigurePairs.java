@@ -9,6 +9,7 @@ import com.game.model.GameState;
 import com.game.model.Point;
 import com.game.model.figure.IFigure;
 
+// TODO überarbeite diesen kommentar
 /**
  * This class has the data on which positions change for a move and it has the information over the
  * next game state. Furthermore he has the information if a figure was hit or a pawn was set.
@@ -33,7 +34,7 @@ public class MoveInPointFigurePairs implements Iterable<Entry<Point, IFigure>> {
 	 * The next game state of the game when this move is done.
 	 */
 	private GameState					nextGameState;
-										
+	
 	/**
 	 * Add a new position which are change with this move
 	 * 

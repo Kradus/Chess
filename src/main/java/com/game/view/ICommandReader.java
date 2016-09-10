@@ -1,7 +1,7 @@
 package com.game.view;
 
 /**
- * This interface is for the commands, which a user can use. Classes with this interface should be
+ * This interface is for the commands, which an user can use. Classes with this interface should be
  * handled the commands from the user.
  * 
  * @author Bjoern Hullmann

@@ -38,7 +38,7 @@ class RestartCommand implements ICommand {
 	}
 	
 	/**
-	 * It restart the game.
+	 * Restart the game.
 	 * 
 	 * @param params
 	 *            the parameters, which the player enters. It is not use here.

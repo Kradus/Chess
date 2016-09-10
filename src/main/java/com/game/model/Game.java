@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Observable;
 
 /**
- * This class old the actual game field and the old constellation of the game field. Furthermore
+ * This class hold the actual game field and the old constellation of the game field. Furthermore
  * hold it the current game state.
  * 
  * @author Bjoern Hullmann
@@ -23,7 +23,7 @@ public class Game extends Observable implements IGame {
 	 * A list with the last constellation of the game field.
 	 */
 	private final LinkedList<IGameField>	lastConstellation	= new LinkedList<>();
-																
+	
 	/**
 	 * {@inheritDoc}
 	 */

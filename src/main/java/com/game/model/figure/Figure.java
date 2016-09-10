@@ -3,8 +3,8 @@ package com.game.model.figure;
 import com.game.model.Player;
 
 /**
- * This is a figure on the game field. It hold the owner and which figure it is. This is a immutable
- * object.
+ * These are the figure on the game field. It hold the owner and the type of the figure. It is an
+ * immutable object.
  * 
  * @author Bjoern Hullmann
  */
@@ -18,7 +18,7 @@ class Figure implements IFigure {
 	 * The owner of the figure.
 	 */
 	private final Player		player;
-								
+	
 	/**
 	 * Create a figure
 	 * 

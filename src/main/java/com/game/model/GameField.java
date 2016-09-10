@@ -6,8 +6,8 @@ import java.util.function.Consumer;
 import com.game.model.figure.IFigure;
 
 /**
- * This is the data class which hold old figure with here position and how many turns are gone after
- * a pawn or a figure was hit.
+ * This is the data class which hold all figure with there position and how many turns are gone
+ * after a pawn or a figure was hit.
  * 
  * @author Bjoern Hullmann
  */
@@ -15,14 +15,14 @@ public class GameField implements IGameField {
 	
 	/**
 	 * The field with all figure on it. The first index is the y position and the second the x.
-	 * Because you can better print it.
+	 * Through this you can better print it.
 	 */
 	private final IFigure[][]	field						= new IFigure[FIELD_SIZE][FIELD_SIZE];
 	/**
 	 * The amount of turns which are gone after the last pawn was set or are figure was hit.
 	 */
 	private int					turnsAfterHitOrMoveAPawn	= 0;
-															
+	
 	/**
 	 * Create a empty game field.
 	 */

@@ -1,7 +1,7 @@
 package com.game.model.figure;
 
 /**
- * This are all types, which a figure can be.
+ * This is an enum with all figure types.
  * 
  * @author Bjoern Hullmann
  */
@@ -32,11 +32,11 @@ public enum FigureType {
 	KING('K', false, true);
 	
 	/**
-	 * This is the index for the old constellations. On this position in the list is always the
-	 * constellation which is relevant for a move from the pawn.
+	 * This is the specific index for an old constellations. On this position in the list is always
+	 * the constellation which is relevant for a move from the pawn.
 	 */
 	public static final int	INDEX_OF_OLD_CONSTELLATION_FOR_PAWN_MOVE	= 1;
-																		
+	
 	/**
 	 * The print key
 	 */
@@ -46,10 +46,10 @@ public enum FigureType {
 	 */
 	private final boolean	pawnCanChangeIntoIt;
 	/**
-	 * If it is relevant if the figure was move or not for a move from a figure.
+	 * It is relevant if the figure was move or not for a move of a figure.
 	 */
 	private final boolean	moveStatusIsRelevant;
-							
+	
 	/**
 	 * Create a figure type.
 	 * 

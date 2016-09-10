@@ -1,7 +1,7 @@
 package com.game.model.figure;
 
 /**
- * A figure with the status if he was move.
+ * A figure with the status if it was move.
  * 
  * @author Bjoern Hullmann
  */

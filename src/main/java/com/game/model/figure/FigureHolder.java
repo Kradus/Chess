@@ -10,19 +10,19 @@ import com.game.model.Player;
 public class FigureHolder implements IFigureHolder {
 	
 	/**
-	 * All figure which was moved for all player.
+	 * All figures which was moved for all players.
 	 */
 	private final Figure[][]	figures			= new Figure[Player.values().length][FigureType
 			.values().length];
 	/**
-	 * All figure which was not moved for all player.
+	 * All figures which was not moved for all players.
 	 */
 	private final Figure[][]	figuresUnmoved	= new Figure[Player.values().length][FigureType
 			.values().length];
-			
+	
 	/**
-	 * Create a figure holder which hold for all player for each figure type a moved figure and a
-	 * unmoved.
+	 * Create a figure holder which hold for each figure type, for all players a moved and unmoved
+	 * figure.
 	 */
 	public FigureHolder() {
 		for (final Player player : Player.values()) {
@@ -37,7 +37,7 @@ public class FigureHolder implements IFigureHolder {
 	}
 	
 	/**
-	 * Create a figure which are already moved.
+	 * Create a figure which was moved.
 	 * 
 	 * @param player
 	 *            The owner of the figure
@@ -51,7 +51,7 @@ public class FigureHolder implements IFigureHolder {
 	}
 	
 	/**
-	 * Create a figure which are not moved.
+	 * Create a figure which is unmoved.
 	 * 
 	 * @param player
 	 *            The owner of the figure

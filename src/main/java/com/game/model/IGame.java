@@ -3,8 +3,8 @@ package com.game.model;
 import java.util.Observer;
 
 /**
- * The game This should be hold a game field and the game state. Furthermore you can get throw this
- * old constellation from the game field.
+ * The interface for the game field. Classes with this interface should should hold the game field
+ * and the game state. Furthermore you can get throw this old constellation from the game field.
  * 
  * @author Bjoern Hullmann
  */
@@ -48,20 +48,20 @@ public interface IGame {
 	int sizeOfLastConstellations();
 	
 	/**
-	 * Add a game field Constellation
+	 * Add a game field constellation
 	 * 
 	 * @param gameField
-	 *            the GameField with should be hold as an old Constellation
+	 *            the game field with should be hold as an old constellation
 	 */
 	void addConstellation(IGameField gameField);
 	
 	/**
-	 * Delete the oldest Constellation of the GameField
+	 * Delete the oldest constellation of the game fields
 	 */
 	void removeOldestConstellation();
 	
 	/**
-	 * Get an old GameField Constellation. Index 0 means the youngest
+	 * Get an old game field constellation. Index 0 means the youngest
 	 * 
 	 * @param index
 	 *            Which constellation you want

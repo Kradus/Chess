@@ -18,11 +18,12 @@ public class Point {
 	 */
 	private static final int		CACHE_HEIGHT	= IGameField.FIELD_SIZE - 1;
 	/**
-	 * The cache for the points.
+	 * The cache for the points. So that it is not needed to create for every time a new point. The
+	 * cache is only for the points, which are on the game field.
 	 */
 	private static final Point[][]	CACHE			= new Point[CACHE_HEIGHT - CACHE_LOW
 			+ 1][CACHE_HEIGHT - CACHE_LOW + 1];
-			
+	
 	static {
 		for (int y = CACHE_LOW; y <= CACHE_HEIGHT; y++) {
 			final Point[] cacheRow = CACHE[y + CACHE_LOW];
@@ -40,7 +41,7 @@ public class Point {
 	 * The y-coordinate
 	 */
 	private final int	y;
-						
+	
 	/**
 	 * Create a new point
 	 * 

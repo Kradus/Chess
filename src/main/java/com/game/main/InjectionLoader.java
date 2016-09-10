@@ -15,7 +15,7 @@ import com.game.view.ICommandReader;
 import com.game.view.IGameFieldPrinter;
 
 /**
- * This class load all beans for the dependency injection and hold all.
+ * This class load all beans for the dependency injection and hold them.
  * 
  * @author Bjoern Hullmann
  */
@@ -26,15 +26,15 @@ public enum InjectionLoader {
 	INSTANCE;
 	
 	/**
-	 * The BeanFactory which hold all the bean for the dependency injection.
+	 * The BeanFactory which hold all the beans for the dependency injection.
 	 */
 	private final BeanFactory factory;
 	
 	/**
-	 * Create Injection Loader which load all beans out of xml files.
+	 * Create Injection Loader which load all beans out of the xml files.
 	 */
 	private InjectionLoader() {
-		final List<String> xmlFiles = new ArrayList<String>();
+		final List<String> xmlFiles = new ArrayList<>();
 		
 		final Path injectionFolder = FileSystems.getDefault()
 				.getPath(ResourceConst.USER_DIR + '/' + ResourceConst.FOLDER_WITH_INJECTION_FILES);

@@ -18,7 +18,7 @@ import com.game.model.Player;
 
 /**
  * This method print always the current game field when it was changed. Furthermore he printed for
- * each game state a special test. So that the users know what they can do.
+ * each game state a specific test. So that the users know what they can do.
  * 
  * @author Bjoern Hullmann
  */
@@ -32,7 +32,7 @@ class GameFieldPrinter implements IGameFieldPrinter {
 	 * The game field template for printing.
 	 */
 	private final String	gameField;
-							
+	
 	/**
 	 * Create printer with read out the template from a file.
 	 * 

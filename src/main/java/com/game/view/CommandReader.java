@@ -56,7 +56,7 @@ class CommandReader implements ICommandReader {
 	}
 	
 	/**
-	 * Parse the input from the player and transfer it to command, which the player enter
+	 * Parse the input from the player and transfer it to a command
 	 * 
 	 * @param line
 	 *            the command which the player enter

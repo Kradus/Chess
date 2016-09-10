@@ -50,7 +50,7 @@ public enum GameState {
 	DRAWN_THREE_TIMES_SAME_CONSTELLATION(true);
 	
 	/**
-	 * If a game round is finish or not.
+	 * If a game is finish or not.
 	 */
 	private final boolean isEndState;
 	
@@ -58,7 +58,7 @@ public enum GameState {
 	 * Create a game state.
 	 * 
 	 * @param isEndState
-	 *            when this state is reach if the game end then.
+	 *            true if the game is finish when it reach this state.
 	 */
 	private GameState(final boolean isEndState) {
 		this.isEndState = isEndState;
