@@ -34,7 +34,7 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 * @param figureHolder
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
-	 *            The checker to check if a figure is in check.
+	 *            The checker to check if the king is in check.
 	 */
 	@Inject
 	PawnMoveHandler(final IGame game, final IFigureHolder figureHolder,
@@ -121,8 +121,8 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	}
 	
 	/**
-	 * This method check if the figure has a turn free, where he can hit a figure. This method is
-	 * for the player at the bottom of the field.
+	 * This method check if the figure has a move, where he can hit a figure. This method is for the
+	 * player at the bottom of the field.
 	 * 
 	 * @param from
 	 *            The position where the pawn stand
@@ -199,8 +199,8 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	}
 	
 	/**
-	 * This method check if the figure has a turn free, where he can hit a figure. This method is
-	 * for the player at the top of the field.
+	 * This method check if the figure has a move, where he can hit a figure. This method is for the
+	 * player at the top of the field.
 	 * 
 	 * @param from
 	 *            The position where the pawn stand

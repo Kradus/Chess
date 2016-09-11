@@ -13,8 +13,8 @@ import com.game.model.figure.FigureType;
 public interface IMoveHandler {
 	
 	/**
-	 * Check for a figure if it is a valid move. This not only check if he can hit the king. It not
-	 * check if the king is after this in check.
+	 * Check for a figure if it is a valid move. This method not check if the figure hit the king or
+	 * if the king is after the move in check.
 	 * 
 	 * @param move
 	 *            The move which should be check.
@@ -39,11 +39,11 @@ public interface IMoveHandler {
 	FigureType getFigureType();
 	
 	/**
-	 * Check if the specific figure type has a turn on the actual game field
+	 * Check if the specific figure type has any moves on the actual game field
 	 * 
 	 * @param from
-	 *            the position where the figure stand
-	 * @return true if the figure have a turn
+	 *            the position where the figure standing
+	 * @return true if the figure have at least one move
 	 */
 	boolean hasFigureATurnFor(Point from);
 }

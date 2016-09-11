@@ -36,8 +36,9 @@ public interface IController {
 	void changePawnInto(FigureType type);
 	
 	/**
-	 * Create a figure out of the given game field and the move. It used first the position of the
-	 * given move. When it is not in it, it use the position of the game field.
+	 * Create a figure getter whit the help from the given game field and the move. It used first
+	 * the position of the given move. When there is no move in it, it use the position of the game
+	 * field. The figure getter show the game field after the given move.
 	 * 
 	 * @param afterThisMove
 	 *            The move which should use

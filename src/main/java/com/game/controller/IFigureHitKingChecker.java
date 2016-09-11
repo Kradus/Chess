@@ -12,7 +12,7 @@ import com.game.model.figure.FigureType;
 interface IFigureHitKingChecker {
 	
 	/**
-	 * Get a Checker if the figure can hit the king for the specific figure type
+	 * Get a checker if the figure can hit the king for the specific figure type
 	 * 
 	 * @param type
 	 *            The type for which you want the checker

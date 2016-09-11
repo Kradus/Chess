@@ -16,16 +16,16 @@ import com.game.model.figure.FigureType;
 class FigureMoveHandler implements IFigureMoveHandler {
 	
 	/**
-	 * All MoveHandler which this object hold.
+	 * All MoveHandles
 	 */
 	private final EnumMap<FigureType, IMoveHandler> figureToMoveHandler = new EnumMap<>(
 			FigureType.class);
-			
+	
 	/**
 	 * Create a FigureMoveHandler with all the given MoveHandler
 	 * 
 	 * @param moveHandlers
-	 *            All MoveHandler which this object should hold.
+	 *            All MoveHandlers
 	 */
 	@Inject
 	FigureMoveHandler(final Set<IMoveHandler> moveHandlers) {

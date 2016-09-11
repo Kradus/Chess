@@ -34,7 +34,7 @@ class BishopMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 * @param figureHolder
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
-	 *            The checker to check if a figure is in check.
+	 *            The checker to check if the king is in check.
 	 * @param bishopHitKingChecker
 	 *            For checking if it is a valid move.
 	 */

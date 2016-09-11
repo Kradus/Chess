@@ -26,7 +26,7 @@ import com.game.model.figure.IFigureHolder;
 
 /**
  * This factory create new game fields with the start constellation. For this it use a xml where the
- * position of each figure stand.
+ * position of each figure is standing.
  * 
  * @author Bjoern Hullmann
  */
@@ -41,7 +41,7 @@ public class GameFieldFactory implements IGameFieldFactory {
 	 */
 	private static final String			TYPE	= "type";
 	/**
-	 * The attribute and Node for the owner of the figure.
+	 * The attribute and node for the owner of the figure.
 	 */
 	private static final String			PLAYER	= "player";
 	/**
@@ -58,7 +58,7 @@ public class GameFieldFactory implements IGameFieldFactory {
 	 */
 	private final IFigureHolder			figureHolder;
 	/**
-	 * The provider to get new empty game fields.
+	 * The provider to get a new empty game fields.
 	 */
 	private final Provider<IGameField>	gameFieldProvider;
 	/**

@@ -33,7 +33,7 @@ class KingMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 * @param figureHolder
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
-	 *            The checker to check if a figure is in check.
+	 *            The checker to check if the king is in check.
 	 */
 	@Inject
 	KingMoveHandler(final IGame game, final IFigureHolder figureHolder,
@@ -144,8 +144,8 @@ class KingMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	}
 	
 	/**
-	 * Check if there a unmoved rook for the castling and if the field are free between rook and
-	 * king.
+	 * Check if there is an unmoved rook for the castling and if the field are free between rook and
+	 * king. It is not checking if the field are save between the king and rook.
 	 * 
 	 * @param rookX
 	 *            The x-position of the rook

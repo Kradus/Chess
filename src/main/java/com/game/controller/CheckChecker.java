@@ -27,12 +27,12 @@ public class CheckChecker implements ICheckChecker {
 	 * The game
 	 */
 	private final IGame					game;
-										
+	
 	/**
 	 * Create a CheckChecker
 	 * 
 	 * @param figureHitChecker
-	 *            The FigureHitKingChecker for getting HitKingCheckers.
+	 *            The FigureHitKingChecker for getting all checks for hitting the king.
 	 * @param game
 	 *            The game for that the checker should check.
 	 */
@@ -98,10 +98,9 @@ public class CheckChecker implements ICheckChecker {
 	 * Get the position of the king from a player
 	 * 
 	 * @param player
-	 *            The player which should own the king
+	 *            The owner of the king
 	 * @param figureGetter
-	 *            A function with them the method can get for each position which figure is on this
-	 *            position.
+	 *            A function with them the method can get for each position which figure is on it.
 	 * @return The position of the king
 	 */
 	private static Point findKing(final Player player,
@@ -116,6 +115,7 @@ public class CheckChecker implements ICheckChecker {
 				}
 			}
 		}
+		// Should not happen. A king should be always on the game field.
 		throw new AssertionError();
 	}
 }

@@ -24,7 +24,7 @@ public interface IHitKingChecker {
 	 * @param figureGetter
 	 *            A function with them the method can get for each position which figure is on this
 	 *            position.
-	 * @return true if the figure can hit the king
+	 * @return true if the figure can hit the king TODO verstehen und überarbeiten komplett
 	 */
 	boolean canHitTheKing(Point from, Point kingPos, Function<Point, IFigure> figureGetter);
 	

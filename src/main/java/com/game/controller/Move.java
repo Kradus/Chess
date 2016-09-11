@@ -3,8 +3,7 @@ package com.game.controller;
 import com.game.model.Point;
 
 /**
- * This class has the information from which field to which field should be move a figure. This is a
- * immutable object.
+ * This class has has the start and end point of a move. This is a immutable object.
  * 
  * @author Bjoern Hullmann
  */
@@ -18,7 +17,7 @@ public class Move {
 	 * The goal position.
 	 */
 	private final Point	to;
-						
+	
 	/**
 	 * Create a move.
 	 * 

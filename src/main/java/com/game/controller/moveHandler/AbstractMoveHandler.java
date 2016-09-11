@@ -29,23 +29,23 @@ abstract class AbstractMoveHandler implements IMoveHandler {
 	 */
 	final IFigureHolder			figureHolder;
 	/**
-	 * The checker to check if a figure is in check.
+	 * The checker to check if the king is in check.
 	 */
 	final ICheckChecker			checkChecker;
 	/**
 	 * The figure type where the checker belongs to.
 	 */
 	private final FigureType	figureType;
-								
+	
 	/**
 	 * Create a AbstractMoveHandler
 	 * 
 	 * @param game
-	 *            The game for which the MoveHandler his.
+	 *            The game for which the MoveHandler is.
 	 * @param figureHolder
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
-	 *            The checker to check if a figure is in check.
+	 *            The checker to check if the king is in check.
 	 * @param figureType
 	 *            The figure type where the checker belongs to.
 	 */
@@ -95,17 +95,17 @@ abstract class AbstractMoveHandler implements IMoveHandler {
 	}
 	
 	/**
-	 * Check if the King is in when the figure was move.
+	 * Check if the king is in check when the figure was move.
 	 * 
 	 * @param from
-	 *            The position where the figure stand.
+	 *            The position where the figure stand before the move.
 	 * @param to
-	 *            The position where the figure stand if he move a field.
+	 *            The position where the figure stand after the move.
 	 * @param figure
 	 *            The figure which should be move.
 	 * @param gameField
 	 *            The game field on which the figure stand.
-	 * @return true if the king is noch in check
+	 * @return true if the king is not in check
 	 */
 	boolean isKingNotInCheckThen(final Point from, final Point to, final IFigure figure,
 			final IGameField gameField) {
@@ -122,7 +122,7 @@ abstract class AbstractMoveHandler implements IMoveHandler {
 	}
 	
 	/**
-	 * Check if a figure has a turn in a specific direction
+	 * Check if a figure has a move in a specific direction
 	 * 
 	 * @param from
 	 *            The position where the figure stand.
@@ -134,7 +134,7 @@ abstract class AbstractMoveHandler implements IMoveHandler {
 	 *            The x-Direction. It is the step size for checking.
 	 * @param yDirection
 	 *            The y-Direction. It is the step size for checking.
-	 * @return true if the figure can make a turn in the direction
+	 * @return true if the figure can make a move in the direction
 	 */
 	boolean checkDirtection(final Point from, final IGameField gameField, final IFigure figure,
 			final int xDirection, final int yDirection) {

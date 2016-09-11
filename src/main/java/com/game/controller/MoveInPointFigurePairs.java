@@ -19,7 +19,7 @@ import com.game.model.figure.IFigure;
 public class MoveInPointFigurePairs implements Iterable<Entry<Point, IFigure>> {
 	
 	/**
-	 * A map which hold all fields which are change and the new figure on it.
+	 * A map which hold all fields which are changing and the new figure on it.
 	 */
 	private final Map<Point, IFigure>	newPositions	= new HashMap<>(8);
 	/**
@@ -36,12 +36,12 @@ public class MoveInPointFigurePairs implements Iterable<Entry<Point, IFigure>> {
 	private GameState					nextGameState;
 	
 	/**
-	 * Add a new position which are change with this move
+	 * Add a new position which are changing with this move
 	 * 
 	 * @param pos
 	 *            The position which will be change
 	 * @param figure
-	 *            The new Figure on this field or null
+	 *            The new figure on this field or null when no figure is on it
 	 */
 	public void addNewPosition(final Point pos, final IFigure figure) {
 		newPositions.put(pos, figure);
@@ -62,7 +62,7 @@ public class MoveInPointFigurePairs implements Iterable<Entry<Point, IFigure>> {
 	 * Get the changes for a given position
 	 * 
 	 * @param pos
-	 *            The position from which you want the changes
+	 *            The position, from which you want the changes
 	 * @return The figure or null if nothing on the given position
 	 */
 	public IFigure getFigure(final Point pos) {
@@ -117,7 +117,7 @@ public class MoveInPointFigurePairs implements Iterable<Entry<Point, IFigure>> {
 	}
 	
 	/**
-	 * Set the game state which should be after this move is done
+	 * Set the game state which should be after this move
 	 * 
 	 * @param nextGameState
 	 *            The game state which is after this move

@@ -5,7 +5,7 @@ import com.game.model.figure.FigureType;
 
 /**
  * Classes with this interface give you for every figure type a MoveHandler. With this you can check
- * if it is a valid move or you can translate this move to a MoveInPointFigurePairs.
+ * if it is a valid move. Furthermore you can translate this move to a MoveInPointFigurePairs.
  * 
  * @author Bjoern Hullmann
  */

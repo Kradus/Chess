@@ -27,12 +27,12 @@ class KnightMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 */
 	private static final int[][]		MOVES	= { { 1, 2 }, { 2, 1 }, { -1, 2 }, { 2, -1 },
 			{ 1, -2 }, { -2, 1 }, { -1, -2 }, { -2, -1 } };
-			
+	
 	/**
 	 * For checking if it is a valid move.
 	 */
 	private final KnightHitKingChecker	knightHitKingChecker;
-										
+	
 	/**
 	 * Create a MoveHandler for the rook
 	 * 
@@ -41,7 +41,7 @@ class KnightMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 * @param figureHolder
 	 *            The figure holder for getting all figure.
 	 * @param checkChecker
-	 *            The checker to check if a figure is in check.
+	 *            The checker to check if the king is in check.
 	 * @param knightHitKingChecker
 	 *            For checking if it is a valid move.
 	 */

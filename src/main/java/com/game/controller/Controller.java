@@ -29,7 +29,7 @@ import com.game.model.figure.IFigureHolder;
 public class Controller implements IController {
 	
 	/**
-	 * Number of turns when is drawn when no pawn was move or a figure was hit
+	 * Number of turns when it is drawn when no pawn was move or a figure was hit
 	 */
 	private static final int			NUMBER_OF_TURN_WHEN_IS_DRAWN					= 50;
 	/**
@@ -60,11 +60,11 @@ public class Controller implements IController {
 	 */
 	private final IGame					game;
 	/**
-	 * The provider where the controller can get new filled game fields.
+	 * The provider where the controller can get new filled game field.
 	 */
 	private final Provider<IGameField>	gameFieldProvider;
 	/**
-	 * A set with all condition of minimal figure amount to set the king checkmatt.
+	 * A set with all condition for the check if a player have enough figure left.
 	 */
 	private final Set<IMinFigureCheck>	minFigureChecks;
 	
@@ -80,9 +80,9 @@ public class Controller implements IController {
 	 * @param game
 	 *            The game for which the controller is.
 	 * @param gameFieldProvider
-	 *            The provider where the controller can get new filled game fields.
+	 *            The provider where the controller can get new filled game field.
 	 * @param minFigureChecks
-	 *            A set with all condition of minimal figure amount to set the king checkmatt.
+	 *            A set with all condition of minimal figure amount to set the king checkmate.
 	 */
 	@Inject
 	public Controller(final IFigureMoveHandler figureMoveHandler, final IFigureHolder figureHolder,
@@ -110,7 +110,7 @@ public class Controller implements IController {
 	 * Reset the game.
 	 * 
 	 * @param ignoreGameState
-	 *            If true the actual game state has no influence if you can could reset the game.
+	 *            If true the actual game state has no influence if you can reset the game field.
 	 */
 	private void restartGame(final boolean ignoreGameState) {
 		if (!ignoreGameState && !game.getGameState().isEndState()) {
@@ -284,7 +284,7 @@ public class Controller implements IController {
 	}
 	
 	/**
-	 * Check if the players reach three times the same constellation on the field
+	 * Check if the players reach three times the same constellation on the field.
 	 * 
 	 * @return true if they reach it
 	 */
@@ -341,7 +341,7 @@ public class Controller implements IController {
 	}
 	
 	/**
-	 * Check if the player has a figure which can make any move,
+	 * Check if the player has a figure which can make any move.
 	 * 
 	 * @param player
 	 *            The player for which should be check.
