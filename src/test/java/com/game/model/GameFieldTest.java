@@ -26,7 +26,7 @@ public class GameFieldTest {
 	 * A counter for the method forEachTest().
 	 */
 	private int					counter			= 0;
-												
+	
 	/**
 	 * Initialization of the game field object.
 	 */
@@ -48,7 +48,6 @@ public class GameFieldTest {
 	 */
 	@Test
 	public void cloneTest() {
-		
 		final GameField clone = gameField.deepClone();
 		
 		Assert.assertEquals(gameField, clone);
