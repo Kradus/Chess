@@ -105,83 +105,9 @@ class KingMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 				}
 			}
 		}
-		
-		if (king.wasMoved()) {
-			return false;
-		}
-		
-		final Function<Point, IFigure> figureGetterWithoutThisKing = pos -> {
-			final IFigure figure = gameField.getFigure(pos);
-			if (figure != null && figure.equals(king)) {
-				return null;
-			}
-			return figure;
-		};
-		
-		if (!checkChecker.isPositionSafeForPlayer(king.getPlayer(), from,
-				figureGetterWithoutThisKing)) {
-			return false;
-		}
-		if (ckeckRook(0, fromY, fromX, gameField)) {
-			// Look if the field where the king move over are in check
-			if (checkChecker.isPositionSafeForPlayer(king.getPlayer(),
-					Point.valueOf(fromX + 1, fromY), figureGetterWithoutThisKing)
-					&& checkChecker.isPositionSafeForPlayer(king.getPlayer(),
-							Point.valueOf(fromX + 2, fromY), figureGetterWithoutThisKing)) {
-				return true;
-			}
-		}
-		if (ckeckRook(IGameField.FIELD_SIZE - 1, fromY, fromX, gameField)) {
-			// Look if the field where the king move over are in check
-			if (checkChecker.isPositionSafeForPlayer(king.getPlayer(),
-					Point.valueOf(fromX - 1, fromY), figureGetterWithoutThisKing)
-					&& checkChecker.isPositionSafeForPlayer(king.getPlayer(),
-							Point.valueOf(fromX - 2, fromY), figureGetterWithoutThisKing)) {
-				return true;
-			}
-		}
+		// It is not needed to check for the castling. Is the castling valid then is also a move
+		// without castling valid.
 		return false;
-	}
-	
-	/**
-	 * Check if there is an unmoved rook for the castling and if the field are free between rook and
-	 * king. It is not checking if the field are save between the king and rook.
-	 * 
-	 * @param rookX
-	 *            The x-position of the rook
-	 * @param rookY
-	 *            The y-position of the rook
-	 * @param kingX
-	 *            The x-position of the king.
-	 * @param gameField
-	 *            the actual game field
-	 * @return true if a castling is possible. It is not checked if the fields are save.
-	 */
-	private static boolean ckeckRook(final int rookX, final int rookY, final int kingX,
-			final IGameField gameField) {
-		final IFigure figure = gameField.getFigure(Point.valueOf(rookX, rookY));
-		if (figure == null || figure.getType() != FigureType.ROOK) {
-			return false;
-		}
-		final IFigureWithMoveStatus rook = (IFigureWithMoveStatus) figure;
-		if (rook.wasMoved()) {
-			return false;
-		}
-		int from;
-		int to;
-		if (rookX < kingX) {
-			from = rookX;
-			to = kingX;
-		} else {
-			from = kingX;
-			to = rookX;
-		}
-		for (int x = from + 1; x < to; x++) {
-			if (gameField.getFigure(Point.valueOf(x, rookY)) != null) {
-				return false;
-			}
-		}
-		return true;
 	}
 	
 	/**

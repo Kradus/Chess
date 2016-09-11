@@ -74,16 +74,13 @@ abstract class AbstractMoveHandler implements IMoveHandler {
 		}
 		translatedMove.addNewPosition(move.getTo(), moveFigure);
 		
-		if (gameField.getFigure(move.getTo()) != null)
-		
-		{
+		if (gameField.getFigure(move.getTo()) != null) {
 			translatedMove.setWasAFigureHit(true);
 		}
 		
 		translatedMove.setNextGameState(game.getGameState() == GameState.TURN_OF_PLAYER_1
 				? GameState.TURN_OF_PLAYER_2 : GameState.TURN_OF_PLAYER_1);
 		return translatedMove;
-		
 	}
 	
 	/**

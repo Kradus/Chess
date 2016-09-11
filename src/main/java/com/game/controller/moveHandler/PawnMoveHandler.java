@@ -96,26 +96,23 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 		final int fromX = from.getX();
 		final int fromY = from.getY();
 		
-		final Point to = Point.valueOf(fromX, fromY - 1);
-		if (gameField.getFigure(to) == null) {
-			if (isKingNotInCheckThen(from, to, pawn, gameField)) {
-				return true;
-			}
+		Point to = Point.valueOf(fromX, fromY - 1);
+		if (gameField.getFigure(to) == null && isKingNotInCheckThen(from, to, pawn, gameField)) {
+			return true;
 		}
-		// When you didn't make the move above, you can not move the figure over two fields
+		to = Point.valueOf(fromX, fromY - 2);
+		if (gameField.getFigure(to) == null && isKingNotInCheckThen(from, to, pawn, gameField)) {
+			return true;
+		}
 		
 		int toX = fromX - 1;
-		if (toX >= 0) {
-			if (checkCanHitBottom(from, fromY, gameField, pawn, toX)) {
-				return true;
-			}
+		if (toX >= 0 && checkCanHitBottom(from, fromY, gameField, pawn, toX)) {
+			return true;
 		}
 		
 		toX = fromX + 1;
-		if (toX < IGameField.FIELD_SIZE) {
-			if (checkCanHitBottom(from, fromY, gameField, pawn, toX)) {
-				return true;
-			}
+		if (toX < IGameField.FIELD_SIZE && checkCanHitBottom(from, fromY, gameField, pawn, toX)) {
+			return true;
 		}
 		return false;
 	}
@@ -179,11 +176,14 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 		final int fromX = from.getX();
 		final int fromY = from.getY();
 		
-		final Point to = Point.valueOf(fromX, fromY + 1);
+		Point to = Point.valueOf(fromX, fromY + 1);
 		if (gameField.getFigure(to) == null && isKingNotInCheckThen(from, to, pawn, gameField)) {
 			return true;
 		}
-		// When you didn't make the move above, you can not move the figure over two fields
+		to = Point.valueOf(fromX, fromY + 2);
+		if (gameField.getFigure(to) == null && isKingNotInCheckThen(from, to, pawn, gameField)) {
+			return true;
+		}
 		
 		int toX = fromX - 1;
 		if (toX >= 0 && checkCanHitTop(from, fromY, gameField, pawn, toX)) {
@@ -257,7 +257,7 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 	 */
 	private boolean isKingNotInCheckThenByHittingPawn(final Point from, final Point to,
 			final IFigure figure, final IGameField gameField) {
-		final Point posHitawn = Point.valueOf(to.getX(), from.getY());
+		final Point posHitPawn = Point.valueOf(to.getX(), from.getY());
 		final boolean kingInCheck = checkChecker.isKingInCheckForPlayer(figure.getPlayer(), pos -> {
 			if (pos.equals(from)) {
 				return null;
@@ -265,7 +265,7 @@ class PawnMoveHandler extends AbstractMoveHandler implements IMoveHandler {
 			if (pos.equals(to)) {
 				return figure;
 			}
-			if (pos.equals(posHitawn)) {
+			if (pos.equals(posHitPawn)) {
 				// The hit pawn
 				return null;
 			}
