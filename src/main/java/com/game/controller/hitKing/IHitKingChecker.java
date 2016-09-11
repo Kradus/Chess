@@ -14,17 +14,16 @@ import com.game.model.figure.IFigure;
 public interface IHitKingChecker {
 	
 	/**
-	 * Check if a figure of a specific type can hit the king. It only check this not if the figure
-	 * can reach the position without hitting the king.
+	 * Check if a figure on the given position can hit the king. It is only for the check if the
+	 * figure can hit the king and not for the check if the figure can reach the position.
 	 * 
 	 * @param from
 	 *            The position where this figure stand
 	 * @param kingPos
 	 *            The position where there king from the other player stand
 	 * @param figureGetter
-	 *            A function with them the method can get for each position which figure is on this
-	 *            position.
-	 * @return true if the figure can hit the king TODO verstehen und überarbeiten komplett
+	 *            A function with them the method can get for each position the figure on it.
+	 * @return true if the figure can hit the king
 	 */
 	boolean canHitTheKing(Point from, Point kingPos, Function<Point, IFigure> figureGetter);
 	
