@@ -12,6 +12,8 @@ This chess program supports all rules of chess. This means e.g.:
 
 For starting you can use the "start.bat" file for Windows or the "start.sh" file for Linux.
 
+When you want a list of the commands please type in "help". The game can only be reset if a match is finished.
+
 The view language of this program is only English because it has no I18n support.
 
 If there are any questions about the program you can ask me in a personal conversation or by phone or e-mail.
