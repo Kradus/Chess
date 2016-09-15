@@ -89,19 +89,19 @@ class GameFieldPrinter implements IGameFieldPrinter {
 	 */
 	private void printState() {
 		switch (game.getGameState()) {
-		case DRAW_50_TURNS:
+		case STALEMATE_50_TURNS:
 			System.out.println(
-					"Game ends in a draw. There was now pawn move or figure hit for 50 turns.");
+					"Game ends in a stalemate. There was now pawn move or figure hit for 50 turns.");
 			break;
-		case DRAW_NOT_ENOUGH_FIGURE:
-			System.out.println("Game ends in a draw. Players don't have enough figures.");
+		case STALEMATE_NOT_ENOUGH_FIGURE:
+			System.out.println("Game ends in a stalemate. Players don't have enough figures.");
 			break;
-		case DRAW_NO_TURN:
-			System.out.println("Game ends in a draw. Both players have no possible turns left.");
+		case STALEMATE_NO_TURN:
+			System.out.println("Game ends in a stalemate. Both players have no possible turns left.");
 			break;
-		case DRAW_THREE_TIMES_SAME_CONSTELLATION:
+		case STALEMATE_THREE_TIMES_SAME_CONSTELLATION:
 			System.out.println(
-					"Game ends in a draw. The same constellation was reached for the third time.");
+					"Game ends in a stalemate. The same constellation was reached for the third time.");
 			break;
 		case PAWN_CHOOSE_PLAYER_1:
 			System.out.println("Player 1 choose a figure type for your pawn.");

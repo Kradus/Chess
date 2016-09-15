@@ -29,9 +29,9 @@ import com.game.model.figure.IFigureHolder;
 public class Controller implements IController {
 	
 	/**
-	 * Number of turns when it is draw when no pawn was move or a figure was hit
+	 * Number of turns when it is stalemate when no pawn was move or a figure was hit
 	 */
-	private static final int			NUMBER_OF_TURN_WHEN_IS_DRAW						= 50;
+	private static final int			NUMBER_OF_TURN_WHEN_IS_STALEMATE						= 50;
 	/**
 	 * The maximal amount of old constellation which are needed for the logic.
 	 */
@@ -173,7 +173,7 @@ public class Controller implements IController {
 		if (game.getGameState() != GameState.PAWN_CHOOSE_PLAYER_1
 				&& game.getGameState() != GameState.PAWN_CHOOSE_PLAYER_2) {
 			saveConstellation();
-			checkForWinOrDraw(player);
+			checkForWinOrStalemate(player);
 		}
 		
 		game.notifyObservers();
@@ -222,7 +222,7 @@ public class Controller implements IController {
 				: GameState.TURN_OF_PLAYER_1);
 		
 		saveConstellation();
-		checkForWinOrDraw(player);
+		checkForWinOrStalemate(player);
 		
 		game.notifyObservers();
 	}
@@ -238,25 +238,25 @@ public class Controller implements IController {
 	}
 	
 	/**
-	 * This method check if the a player win the game or if the game goes in a draw. Furthermore set
-	 * this method the game state of the game, when a player win or when a draw occurred.
+	 * This method check if the a player win the game or if the game goes in a stalemate. Furthermore set
+	 * this method the game state of the game, when a player win or when a stalemate occurred.
 	 * 
 	 * @param player
 	 *            The player which have done the last move.
 	 */
-	private void checkForWinOrDraw(final Player player) {
+	private void checkForWinOrStalemate(final Player player) {
 		if (!checkIfPlayerHasATurn(player == Player.PLAYER_1 ? Player.PLAYER_2 : Player.PLAYER_1)) {
 			if (checkIfPlayerWin(player)) {
 				game.setGameState(player.getWinState());
 			} else {
-				game.setGameState(GameState.DRAW_NO_TURN);
+				game.setGameState(GameState.STALEMATE_NO_TURN);
 			}
 		} else if (checkIf50TurnNoFigureRemovedOrPawnWasSet()) {
-			game.setGameState(GameState.DRAW_50_TURNS);
+			game.setGameState(GameState.STALEMATE_50_TURNS);
 		} else if (!checkIfPlayersHaveEnoughFigures()) {
-			game.setGameState(GameState.DRAW_NOT_ENOUGH_FIGURE);
+			game.setGameState(GameState.STALEMATE_NOT_ENOUGH_FIGURE);
 		} else if (checkIfPlayersHaveReachThreeTimesTheSameConstellation()) {
-			game.setGameState(GameState.DRAW_THREE_TIMES_SAME_CONSTELLATION);
+			game.setGameState(GameState.STALEMATE_THREE_TIMES_SAME_CONSTELLATION);
 		}
 	}
 	
@@ -372,7 +372,7 @@ public class Controller implements IController {
 	 * @return true if over 50 turns no pawn are set
 	 */
 	private boolean checkIf50TurnNoFigureRemovedOrPawnWasSet() {
-		return game.getGameField().getTurnsAfterHitOrMoveAPawn() >= NUMBER_OF_TURN_WHEN_IS_DRAW;
+		return game.getGameField().getTurnsAfterHitOrMoveAPawn() >= NUMBER_OF_TURN_WHEN_IS_STALEMATE;
 	}
 	
 	/**
