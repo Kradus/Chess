@@ -89,17 +89,17 @@ class GameFieldPrinter implements IGameFieldPrinter {
 	 */
 	private void printState() {
 		switch (game.getGameState()) {
-		case DRAWN_50_TURNS:
+		case DRAW_50_TURNS:
 			System.out.println(
 					"Game ends in a draw. There was now pawn move or figure hit for 50 turns.");
 			break;
-		case DRAWN_NOT_ENOUGH_FIGURE:
+		case DRAW_NOT_ENOUGH_FIGURE:
 			System.out.println("Game ends in a draw. Players don't have enough figures.");
 			break;
-		case DRAWN_NO_TURN:
+		case DRAW_NO_TURN:
 			System.out.println("Game ends in a draw. Both players have no possible turns left.");
 			break;
-		case DRAWN_THREE_TIMES_SAME_CONSTELLATION:
+		case DRAW_THREE_TIMES_SAME_CONSTELLATION:
 			System.out.println(
 					"Game ends in a draw. The same constellation was reached for the third time.");
 			break;
