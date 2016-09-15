@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:component-scan base-package="com.game.controller.minFigure" />
+	<context:component-scan base-package="com.game.controller.moveHandler" />
+	<context:component-scan base-package="com.game.controller.hitKing" />
+	<context:component-scan base-package="com.game.view.commands" />
+
+	<bean id="commandReader" class="com.game.view.CommandReader" />
+	<bean id="gameFieldPrinter" class="com.game.view.GameFieldPrinter" />
+
+	<bean id="figureHolder" class="com.game.model.figure.FigureHolder" />
+	<bean id="game" class="com.game.model.Game" />
+	<bean id="gameFieldEmpty" class="com.game.model.GameField" />
+	<bean id="providerOfGameFieldEmpty"
+		class="org.springframework.beans.factory.config.ProviderCreatingFactoryBean">
+		<property name="targetBeanName" value="gameFieldEmpty" />
+	</bean>
+	
+	<bean id="controller" class="com.game.controller.Controller">
+		<constructor-arg ref="providerOfGameFieldFilled" />
+	</bean>
+	<bean id="checkChecker" class="com.game.controller.CheckChecker" />
+	<bean id="figureMoveHandler" class="com.game.controller.FigureMoveHandler" />
+	<bean id="figureHitKingChecker" class="com.game.controller.FigureHitKingChecker" />
+	
+	<bean id="gameFieldFactory" class="com.game.controller.GameFieldFactory">
+		<constructor-arg ref="providerOfGameFieldEmpty" />
+	</bean>
+	<bean id="gameFieldFilled" factory-bean="gameFieldFactory"
+		factory-method="createGameField">
+	</bean>
+	<bean id="providerOfGameFieldFilled"
+		class="org.springframework.beans.factory.config.ProviderCreatingFactoryBean">
+		<property name="targetBeanName" value="gameFieldFilled" />
+	</bean>
+</beans>
