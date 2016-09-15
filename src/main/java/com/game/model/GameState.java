@@ -31,23 +31,23 @@ public enum GameState {
 	 */
 	PLAYER_2_WIN(true),
 	/**
-	 * The games goes in a drawn. No figure was hit or pawn was set since 50 turns.
+	 * The games goes in a stalemate. No figure was hit or pawn was set since 50 turns.
 	 */
-	DRAWN_50_TURNS(true),
+	STALEMATE_50_TURNS(true),
 	/**
-	 * The games goes in a drawn. The actual player can not make any move and his king is not in
+	 * The games goes in a stalemate. The actual player can not make any move and his king is not in
 	 * check.
 	 */
-	DRAWN_NO_TURN(true),
+	STALEMATE_NO_TURN(true),
 	/**
-	 * The games goes in a drawn. Both players have not enough figure, so that they can hit the
+	 * The games goes in a stalemate. Both players have not enough figure, so that they can hit the
 	 * other king.
 	 */
-	DRAWN_NOT_ENOUGH_FIGURE(true),
+	STALEMATE_NOT_ENOUGH_FIGURE(true),
 	/**
-	 * The games goes in a drawn because three times was reach the same game field constellation.
+	 * The games goes in a stalemate because three times was reach the same game field constellation.
 	 */
-	DRAWN_THREE_TIMES_SAME_CONSTELLATION(true);
+	STALEMATE_THREE_TIMES_SAME_CONSTELLATION(true);
 	
 	/**
 	 * If a game is finish or not.

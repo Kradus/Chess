@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<player player="player_2">
+		<figure posX="0" posY="0" type="rook" />
+		<figure posX="1" posY="0" type="knight" />
+		<figure posX="2" posY="0" type="bishop" />
+		<figure posX="3" posY="0" type="queen" />
+		<figure posX="4" posY="0" type="king" />
+		<figure posX="5" posY="0" type="bishop" />
+		<figure posX="6" posY="0" type="knight" />
+		<figure posX="7" posY="0" type="rook" />
+
+		<figure posX="0" posY="1" type="pawn" />
+		<figure posX="1" posY="1" type="pawn" />
+		<figure posX="2" posY="1" type="pawn" />
+		<figure posX="3" posY="1" type="pawn" />
+		<figure posX="4" posY="1" type="pawn" />
+		<figure posX="5" posY="1" type="pawn" />
+		<figure posX="6" posY="1" type="pawn" />
+		<figure posX="7" posY="1" type="pawn" />
+	</player>
+	<player player="player_1">
+		<figure posX="0" posY="6" type="pawn" />
+		<figure posX="1" posY="6" type="pawn" />
+		<figure posX="2" posY="6" type="pawn" />
+		<figure posX="3" posY="6" type="pawn" />
+		<figure posX="4" posY="6" type="pawn" />
+		<figure posX="5" posY="6" type="pawn" />
+		<figure posX="6" posY="6" type="pawn" />
+		<figure posX="7" posY="6" type="pawn" />
+
+		<figure posX="0" posY="7" type="rook" />
+		<figure posX="1" posY="7" type="knight" />
+		<figure posX="2" posY="7" type="bishop" />
+		<figure posX="3" posY="7" type="queen" />
+		<figure posX="4" posY="7" type="king" />
+		<figure posX="5" posY="7" type="bishop" />
+		<figure posX="6" posY="7" type="knight" />
+		<figure posX="7" posY="7" type="rook" />
+	</player>
+</root>
